@@ -8,7 +8,7 @@ posts = [
     {
          'author': 'Jeff',
          'title': 'Pitch 1',
-         'content': 'brr kang kang',
+         'content': 'brr kang kang buyaka buyaka are frtiom whad up frigo from the frost frsnkeinstrein bla ha ndi hu ha na mayengs  na o nano vroom',
          'date_posted': 'August 15th, 2019'       
     },
     {
