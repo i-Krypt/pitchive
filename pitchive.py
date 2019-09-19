@@ -41,9 +41,14 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 # LoginForm route   
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@email.com' and  form.password.data == 'password':
+            flash('Login successful')
+        else:
+            flash('login unsuccessful')
     return render_template('login.html', title='Login', form=form)
 
 
