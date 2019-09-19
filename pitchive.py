@@ -23,7 +23,7 @@ posts = [
 ]
 
 @app.route('/')
-def hello():
+def home():
     return render_template('home.html', posts=posts)
 
 @app.route("/about")
@@ -37,7 +37,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home.html'))
+        return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
 # LoginForm route   
