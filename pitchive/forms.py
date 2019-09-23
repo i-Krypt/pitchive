@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
-
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from pitchive.models import User
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
@@ -14,6 +14,17 @@ class RegistrationForm(FlaskForm):
                               validators=[DataRequired(), EqualTo('password')]) 
     submit = SubmitField('Sign Up')
 
+    def validate_username(self, username):
+
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('Username taken,please choose another.')
+
+    def validate_email(self, email):
+
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('Email taken,please choose another.')
 
 
 
@@ -24,3 +35,8 @@ class LoginForm(FlaskForm):
                               validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+class PitchForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    submit = SubmitField('Pitch')

@@ -1,26 +1,23 @@
 {%extends 'base.html' %}
 
+
+
 {% block content %}
 
-{% for post in posts %}
-<!-- <div class="ui raised card" style="width: 50%">
-    <div class="content">
-        <div class="header">{{post.title}}</div>
-        <div class="meta">
-            <span class="category"> By {{post.author}} on {{post.date_posted}}</span>
-        </div>
-        <div class="description">
-            <p>{{ post.content}}</p>
-        </div>
-    </div>
-    <div class="extra content">
-        <div class="right floated author">
-            <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Jeff
-        </div>
-    </div>
-</div> -->
+   <!-- Content block -->
 
+    <!-- background block  -->
+    {% block background %}
+    {% include 'image.html' %}
+    {% endblock %}
+
+
+    <!-- Content block -->
+    <br>
+
+{% for pitch in pitches %}
 <!-- Pitch jumbotron -->
+<div class="container">
 <div class="jumbotron text-center hoverable p-4">
 
         <!-- Grid row -->
@@ -45,13 +42,13 @@
       
             <!-- Excerpt -->
             <a href="#!" class="green-text">
-              <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> {{post.author}}</h6>
+              <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> {{pitch.author.username}}</h6>
             </a>
       
-            <h4 class="h4 mb-4">This is title of the news</h4>
+            <h4 class="h4 mb-4">Pitch Title: {{ pitch.title }}</h4>
       
-            <p class="font-weight-normal">{{post.content }}</p>
-            <p class="font-weight-normal">by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
+            <p class="font-weight-normal">{{ pitch.content }}</p>
+            <p class="font-weight-normal">by <a><strong> {{ pitch.author.username}}</strong></a>, {{ pitch.date_posted.strftime('%Y-%m-%d')}}</p>
       
             <br>
             <!-- vote buttons -->
@@ -72,6 +69,7 @@
         <!-- Grid row -->
       
       </div>
+    </div>
       <!-- News jumbotron -->
 {% endfor %}
 {% endblock content%}

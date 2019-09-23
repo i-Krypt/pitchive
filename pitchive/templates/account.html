@@ -1,0 +1,26 @@
+{%extends 'base.html' %}
+
+ {% block content %}
+ <br>
+ <div class="container">
+   <h1>User Account</h1>
+   <div class="ui card" style="margin-left: 30%">
+    <div class="image">
+      <img src="https://i.ibb.co/7vLFxpb/acco.jpg">
+    </div>
+    <div class="content">
+      <a class="header">{{ current_user.username}}</a>
+     
+      <div class="description">
+        {{  current_user.email }}
+      </div>
+    </div>
+    <div class="extra content">
+      <a>
+        <i class="comment icon"></i>
+    2 comments
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock content%}
