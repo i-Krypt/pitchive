@@ -4,7 +4,7 @@ Built with python3.6
 ## Description
 A web app that lets the user add pitches as well as reviewing other peoples pitches.  
 
-A live link of my app https://fast-plains-94599.herokuapp.com/
+A live link of my app https://thawing-atoll-97056.herokuapp.com/
 
 
 ## Author
